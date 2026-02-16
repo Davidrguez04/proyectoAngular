@@ -1,0 +1,40 @@
+<div class="user-container">
+
+  <div class="user-card" *ngIf="usuario">
+
+    <div class="user-header">
+      <h2>Mi Perfil</h2>
+      <button class="btn-secondary" (click)="cerrarSesion()">
+        Cerrar sesión
+      </button>
+    </div>
+
+    <div class="user-info">
+
+      <div class="info-item">
+        <span class="label">Nombre</span>
+        <span class="value">{{ usuario.nombreUsuario }}</span>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Apellidos</span>
+        <span class="value">{{ usuario.apellidosUsuario }}</span>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Correo electrónico</span>
+        <span class="value">{{ usuario.correoElectronico }}</span>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Rol</span>
+        <span class="badge">
+          {{ usuario.tipoUsuario }}
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

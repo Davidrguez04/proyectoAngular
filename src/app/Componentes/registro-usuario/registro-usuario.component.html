@@ -1,0 +1,80 @@
+<div class="auth-container">
+
+  <div class="auth-card register-card">
+
+    <h2>Crear cuenta</h2>
+    <p class="subtitle">
+      Regístrate para empezar a gestionar tus pedidos y entrenamientos
+    </p>
+
+    <form (ngSubmit)="registrar()" #formRegistro="ngForm">
+
+      <div class="input-group">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="nombre" name="nombre" required>
+      </div>
+
+      <div class="input-group">
+        <label>Primer Apellido</label>
+        <input type="text" [(ngModel)]="apellido1" name="apellido1" required>
+      </div>
+
+      <div class="input-group">
+        <label>Segundo Apellido</label>
+        <input type="text" [(ngModel)]="apellido2" name="apellido2" required>
+      </div>
+
+      <div class="input-group">
+        <label>Fecha de Nacimiento</label>
+        <input type="date" [(ngModel)]="fechaNac" name="fechaNac" required>
+      </div>
+
+      <div class="input-group">
+        <label>Móvil</label>
+        <input type="text" [(ngModel)]="movil" name="movil" required>
+      </div>
+
+      <div class="input-group">
+        <label>Correo Electrónico</label>
+        <input type="email" [(ngModel)]="email" name="email" required>
+      </div>
+
+      <div class="input-group">
+        <label>Tipo de Usuario</label>
+        <select [(ngModel)]="rol" name="rol" required>
+          <option value="" disabled selected>Selecciona rol</option>
+          <option value="USUARIO">Usuario</option>
+          <option value="ADMIN">Administrador</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña</label>
+        <input type="password" [(ngModel)]="password" name="password" required>
+      </div>
+
+      <div class="input-group">
+        <label>Confirmar contraseña</label>
+        <input type="password" [(ngModel)]="password2" name="password2" required>
+      </div>
+
+      <button type="submit" class="btn-primary">
+        Crear Cuenta
+      </button>
+
+    </form>
+
+    <div class="extra-links">
+      <p>
+        ¿Ya tienes cuenta?
+        <a routerLink="/login">Iniciar sesión</a>
+      </p>
+
+      <button routerLink="/" class="btn-secondary">
+        Volver al inicio
+      </button>
+    </div>
+
+  </div>
+
+</div>

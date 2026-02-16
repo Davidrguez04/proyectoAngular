@@ -1,0 +1,93 @@
+<div class="admin-container">
+
+  <div class="admin-card">
+
+    <div class="admin-header">
+      <h2>Panel de Administración</h2>
+      <button (click)="irInicio()" class="btn-secondary">
+  Volver al inicio
+</button>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let u of usuarios">
+            <td>{{ u.idUsuario }}</td>
+            <td>{{ u.nombreUsuario }}</td>
+            <td>{{ u.correoElectronico }}</td>
+            <td>
+              <span class="rol-badge" 
+                    [ngClass]="{
+                      'admin': u.tipoUsuario === 'ADMIN',
+                      'usuario': u.tipoUsuario === 'USUARIO'
+                    }">
+                {{ u.tipoUsuario }}
+              </span>
+            </td>
+            <td class="actions">
+              <button class="btn-edit" (click)="editarUsuario(u)">
+                Modificar
+              </button>
+              <button class="btn-delete" (click)="eliminar(u.idUsuario)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- EDITAR USUARIO -->
+    <div *ngIf="modoEdicion" class="edit-card">
+
+      <h3>Editar Usuario</h3>
+
+      <div class="input-group">
+        <label>Nombre</label>
+        <input [(ngModel)]="usuarioSeleccionado.nombreUsuario">
+      </div>
+
+      <div class="input-group">
+        <label>Apellidos</label>
+        <input [(ngModel)]="usuarioSeleccionado.apellidosUsuario">
+      </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input [(ngModel)]="usuarioSeleccionado.correoElectronico">
+      </div>
+
+      <div class="input-group">
+        <label>Rol</label>
+        <select [(ngModel)]="usuarioSeleccionado.tipoUsuario">
+          <option value="ADMIN">ADMIN</option>
+          <option value="USUARIO">USUARIO</option>
+        </select>
+      </div>
+
+      <div class="edit-actions">
+        <button class="btn-primary" (click)="guardarCambios()">
+          Guardar cambios
+        </button>
+
+        <button class="btn-secondary" (click)="modoEdicion=false">
+          Cancelar
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
